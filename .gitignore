@@ -1,0 +1,7 @@
+*.iml
+.DS_Store/
+.idea/
+.vscode/
+.vs/
+node_modules/
+out/
