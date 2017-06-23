@@ -76,3 +76,17 @@ ol, ul {
 .game-info {
   margin-left: 20px;
 }
+
+.dialog-text {
+  text-align: center;
+}
+
+.dialog-img {
+  width: 100%;
+}
+
+.dialog-img-container {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}

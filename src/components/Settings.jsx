@@ -4,14 +4,14 @@ import FlatButton from 'material-ui/FlatButton';
 
 class Settings extends Component {
     state = {
-        colors: 4,
-        size: 22,
-        steps: 30,
+        colors: 3,
+        size: 6,
+        steps: 6,
     }
 
     calcClicksAmount = () => {
-        const maxClicksAmount = Math.ceil(this.state.colors * this.state.size / 3);
-        this.setState({ maxClicksAmount });
+        const steps = Math.ceil(this.state.colors * this.state.size / 3);
+        this.setState({ steps });
     }
 
     handleFirstSlider = (event, value) => {

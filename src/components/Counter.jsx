@@ -6,8 +6,8 @@ class Couner extends Component {
     steps: this.props.steps
   }
 
-  inc() {
-    this.setState({ counter: this.state.counter + 1 })
+  inc(cb) {
+    this.setState({ counter: this.state.counter + 1 });
   }
 
   render() {
