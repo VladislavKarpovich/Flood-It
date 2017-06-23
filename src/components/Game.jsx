@@ -22,8 +22,8 @@ class Game extends Component {
 
     const oldColor = this.getElementColor(1, 1);
     const newColor = this.getElementColor(oX, oY);
-    // if (newColor === oldColor)
-    // return;
+    if (newColor === oldColor)
+      return;
 
     this.refs.counter.inc();
     const stack = [{ x: 1, y: 1 }];
@@ -46,8 +46,8 @@ class Game extends Component {
     if (this.checkResult())
       return this.showAlert('You win!', 'winner.png');
 
-    if (!this.checkStep())
-      return this.showAlert('You lose!', 'loser.png');
+    if (this.allStepsAreSpended())
+      this.showAlert('You lose!', 'loser.png');
   }
 
   showAlert(text, img) {
@@ -60,6 +60,12 @@ class Game extends Component {
     const steps = this.state.steps;
     const curStep = this.refs.counter.state.counter + 1;
     return curStep <= steps;
+  }
+
+  allStepsAreSpended() {
+    const steps = this.state.steps;
+    const curStep = this.refs.counter.state.counter + 1;
+    return curStep >= steps;
   }
 
   checkResult() {
