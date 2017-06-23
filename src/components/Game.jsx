@@ -17,8 +17,7 @@ class Game extends Component {
   }
 
   floodIt = (oX, oY) => {
-    if (!this.checkStep())
-      return this.showAlert('You lose!', 'loser.png');
+    if (!this.checkStep()) return;
 
     const oldColor = this.getElementColor(1, 1);
     const newColor = this.getElementColor(oX, oY);
@@ -105,15 +104,16 @@ class Game extends Component {
     return sqColor === oldColor;
   }
 
-  counterHandle = (clicks) => {
-    console.log(clicks);
+  restartGame() {
+    this.refs.counter.restart();
+    this.refs.board.forceUpdate();
   }
 
   render() {
     return (
       <div>
-        <Board settings={this.props.settings} floodIt={this.floodIt} />
-        <Counter ref='counter' steps={this.state.steps} counterHandle={this.counterHandle} />
+        <Board ref='board' settings={this.props.settings} floodIt={this.floodIt} />
+        <Counter ref='counter' steps={this.state.steps} />
         <Alert ref='msg' />
       </div>
     );

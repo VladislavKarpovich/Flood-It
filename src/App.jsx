@@ -27,6 +27,10 @@ class App extends Component {
         this.setState({ playing: false });
     }
 
+    restartGame = (event) => {
+        this.refs.game.restartGame();
+    }
+
     render() {
         return (
             <div className="app">
@@ -55,15 +59,24 @@ class App extends Component {
     }
 
     renderGameField() {
+        const actions = [
+            <FlatButton
+                label="Restart"
+                primary={true}
+                onTouchTap={this.restartGame}
+                fullWidth={true}
+            />,
+            <FlatButton
+                label="Exit"
+                primary={true}
+                onTouchTap={this.exitGame}
+                fullWidth={true}
+            />
+        ];
         return (
             <div className="game-field">
-                <Game settings={this.state.settings} />
-                <FlatButton
-                    label="Exit"
-                    primary={true}
-                    onTouchTap={this.exitGame}
-                    fullWidth={true}
-                />
+                <Game ref='game' settings={this.state.settings} />
+                {actions}
             </div>
         )
     }
