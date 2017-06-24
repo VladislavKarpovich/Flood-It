@@ -62,15 +62,15 @@ class App extends Component {
         const actions = [
             <FlatButton
                 label="Restart"
-                primary={true}
                 onTouchTap={this.restartGame}
                 fullWidth={true}
+                key="buton_restart_game"
             />,
             <FlatButton
                 label="Exit"
-                primary={true}
                 onTouchTap={this.exitGame}
                 fullWidth={true}
+                key="buton_exit_game"
             />
         ];
         return (

@@ -51,7 +51,6 @@ class Settings extends Component {
 
                 <FlatButton
                     label="Start"
-                    primary={true}
                     onTouchTap={this.handleStartGame}
                     fullWidth={true}
                 />
